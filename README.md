@@ -32,11 +32,11 @@ Celluloid.supervise as: :my_actor, type: MyActor, args: [:one_arg, :two_args]
 # Using containers.
 
 ```ruby
-container = Celluloid::Supervision::Container.new {
+class MyContainer < Celluloid::Supervision::Container
   supervise type: MyActor, as: :my_actor
   supervise type: MyActor, as: :my_actor_with_args, args: [:one_arg, :two_args]
-}
-container.run!
+end
+MyContainer.run!
 ```
 
 # Using configuration objects:
